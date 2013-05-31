@@ -44,7 +44,7 @@ if Chef::Config[:solo]
             rows = []
             Chef::Log.info("Bag %s" % [bag.to_s])
             # TODO - Apparently Vagrant 0.8 is setting this to an array.
-            Chef::Config[:data_bag_path] = Chef::Config[:data_bag_path].first
+            # Chef::Config[:data_bag_path] = Chef::Config[:data_bag_path].first
             Chef::Log.info("Data bag path %s" % [Chef::Config[:data_bag_path]])
             Chef::DataBag.load(bag.to_s).each do |bag_item|
               if (query == '*:*' || item_query_match(query, bag_item[1]))
